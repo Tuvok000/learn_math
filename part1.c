@@ -23,7 +23,7 @@ void rand_gen(int *var, int min, int max)
 int main()
 {
   time_t t;
-  int i, val[4];
+  int i, j, val[2];
   int operator; //designates whether addition or subtraction is performed
   srand(time(0));
   FILE *output, *answers;
@@ -33,7 +33,8 @@ int main()
 
   for(i = 0; i < 20; i++)
     {
-      rand_gen(val, -9, 9);
+	//add check for second value to modify the sign
+      for(j = 0; j < 2; j++) rand_gen(val[j], -9, 9);
       fprintf(output, "%2d) %d + %d = \t\t%2d) %d + %d = \n", i*2+1, val[0], val[1], i*2+2, val[2], val[3]);
       fprintf(answers, "%2d)%4d\t%2d)%4d\n", i*2+1, val[0] + val[1], i*2+2, val[2] + val[3]);
     }
