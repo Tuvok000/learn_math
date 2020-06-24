@@ -35,8 +35,14 @@ int main()
     {
 	//add check for second value to modify the sign
       for(j = 0; j < 2; j++) rand_gen(val[j], -9, 9);
-      fprintf(output, "%2d) %d + %d = \t\t%2d) %d + %d = \n", i*2+1, val[0], val[1], i*2+2, val[2], val[3]);
-      fprintf(answers, "%2d)%4d\t%2d)%4d\n", i*2+1, val[0] + val[1], i*2+2, val[2] + val[3]);
+      if(val[1] >= 0)
+      {
+	fprintf(output, "%2d) %d + %d = \t\t", i*2+1, val[0], val[1]);
+      }
+      else
+      {
+  	fprintf(output, "%2d) %d -
+fprintf(answers, "%2d)%4d\t", i*2+1, val[0] + val[1]);
     }
 
   //close both work file and solution file
