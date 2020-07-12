@@ -20,6 +20,75 @@ void rand_gen(int *var, int min, int max)
   *var = (rand() % (max + offset)) - offset;
 }
 
+int num_input(int length)
+{
+  /********************************************
+  Function will take in how many digits to read
+  (up to 6), and output a single number
+  ********************************************/
+  //make sure the input is between 1 and 6 inclusive
+  if (length > 6) length = 6;
+  if (length < 1) length = 1;
+  int digit[6] = {0};
+  int i;
+  unsigned int input = 0;
+  int count = 0;
+  for(i = 0; i < length + 1; i++)
+    {
+      //get character input from user
+      input = getchar();
+      //parse character input to separate numbers and carrige return
+      //from everything else
+      switch(input)
+	{
+	case '0':
+	  digit[i] = 0;
+	  count++;
+	  break;
+	case '1':
+	  digit[i] = 1;
+	  count++;
+	  break;
+	case '2':
+	  digit[i] = 2;
+	  count++;
+	  break;
+	case '3':
+	  digit[i] = 3;
+	  count++;
+	  break;
+	case '4':
+	  digit[i] = 4;
+	  count++;
+	  break;
+	case '5':
+	  digit[i] = 5;
+	  count++;
+	  break;
+	case '6':
+	  digit[i] = 6;
+	  count++;
+	  break;
+	case '7':
+	  digit[i] = 7;
+	  count++;
+	  break;
+	case '8':
+	  digit[i] = 8;
+	  count++;
+	  break;
+	case '9':
+	  digit[i] = 9;
+	  count++;
+	  break;
+	default:
+	  printf("Invalid character entered, please enter a number between 0-9\n\n");
+	  break;
+	}
+      
+	  
+	  
+
 int main()
 {
   printf("Welcome to Learn Math Alpha V0.0.1");
@@ -52,7 +121,8 @@ int main()
 			  {1, 0, 10}, {1, 0, 25}, {1, 0, 50}, {1, 0, 100}, {1, 0, 250},
 			  {2, -10, 10}, {2, -25, 25}, {2, -50, 50}, {2, -100, 100}, {2, -250, 250}};
   unsigned int level;
-  level = getc();
+  //function to input and validate character input
+  level = getchar();
   printf("%d, %d, %d, %d\n", level, reference[level][0], reference[level][1], reference[level][2]);
   /*
   time_t t;
