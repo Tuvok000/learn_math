@@ -26,6 +26,7 @@ int num_input(int length)
   Function will take in how many digits to read
   (up to 6), and output a single number
   ********************************************/
+  
   //make sure the input is between 1 and 6 inclusive
   if (length > 6) length = 6;
   if (length < 1) length = 1;
@@ -33,61 +34,36 @@ int num_input(int length)
   int i;
   unsigned int input = 0;
   int count = 0;
-  for(i = 0; i < length + 1; i++)
+  for(i = 0; i < length; i++)
     {
-      //get character input from user
-      input = getchar();
-      //parse character input to separate numbers and carrige return
-      //from everything else
-      switch(input)
+      while(1)
 	{
-	case '0':
-	  digit[i] = 0;
-	  count++;
-	  break;
-	case '1':
-	  digit[i] = 1;
-	  count++;
-	  break;
-	case '2':
-	  digit[i] = 2;
-	  count++;
-	  break;
-	case '3':
-	  digit[i] = 3;
-	  count++;
-	  break;
-	case '4':
-	  digit[i] = 4;
-	  count++;
-	  break;
-	case '5':
-	  digit[i] = 5;
-	  count++;
-	  break;
-	case '6':
-	  digit[i] = 6;
-	  count++;
-	  break;
-	case '7':
-	  digit[i] = 7;
-	  count++;
-	  break;
-	case '8':
-	  digit[i] = 8;
-	  count++;
-	  break;
-	case '9':
-	  digit[i] = 9;
-	  count++;
-	  break;
-	default:
-	  printf("Invalid character entered, please enter a number between 0-9\n\n");
-	  break;
+	  input = getchar();
+	  //user entered a value between 0-9
+	  if (input >= '0' && input <= '9')
+	    {
+	      digit[i] = input - '0';//convert ascii number value to actual number value
+	      break;
+	    }
+	  //user presed enter without entering at least one number
+	  else if (input == '\r' && i == 0)
+	    {
+	      printf("Must enter at least one value\n");
+	    }
+	  //user pressed enter with at least one number entered
+	  else if (input == '\r' && i > 0)
+	    {
+	      i = length;
+	      break;
+	    }
+	  //user entered an input other than numbers
+	  else
+	    {
+	      printf("Incorrect input detected, enter number 0-9\n");
+	    }
 	}
-      
 	  
-	  
+        
 
 int main()
 {
