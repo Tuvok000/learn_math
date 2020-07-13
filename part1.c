@@ -30,10 +30,12 @@ int num_input(int length)
   //make sure the input is between 1 and 6 inclusive
   if (length > 6) length = 6;
   if (length < 1) length = 1;
-  int digit[6] = {0};
-  int i;
-  unsigned int input = 0;
-  int count = 0;
+  
+  int digit[6] = {0};//stores up to 6 digits
+  int i;//generic variable for use in for loops
+  unsigned int input = 0;//stores input from getchar()
+  int count = 0; //keeps track of values entered to later multiply my powers of 10
+  
   for(i = 0; i < length; i++)
     {
       while(1)
@@ -43,6 +45,7 @@ int num_input(int length)
 	  if (input >= '0' && input <= '9')
 	    {
 	      digit[i] = input - '0';//convert ascii number value to actual number value
+	      count++;
 	      break;
 	    }
 	  //user presed enter without entering at least one number
@@ -62,6 +65,13 @@ int num_input(int length)
 	      printf("Incorrect input detected, enter number 0-9\n");
 	    }
 	}
+    }
+
+  //multiplies the individual digits to create a single number
+  //ex: x*10^2 + y*10^1 + z*10^0
+  for(i = count; i >= 0; i--)
+    {
+      
 	  
         
 
