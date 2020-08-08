@@ -3,22 +3,12 @@
 #include <math.h>
 #include <time.h>
 
-void rand_gen(int *var, int min, int max)
+int rand_gen(int min, int max)
 {
-  //function allows a max and min value, within integer range
-  //middle of range:
-  // mid = (max + min)/2     (19+(-8))/2 = 11/2 = 5.5 = 5
-  //max offset from middle:
-  // offset = abs(max - mid) |19 - 5| = 14
-  //final equation
-  // *var = (rand() % (max + offset)) - offset (63 % (19 + 14)) - 14 = 
-
-  int mid, offset;
-  
-  mid = (max + min) / 2;
-  offset = abs(max - mid);
-  *var = (rand() % (max + offset)) - offset;
+  return min + rand() % (max + 1 - min);
 }
+
+
 
 int num_input(int length)
 {
@@ -106,7 +96,7 @@ int main()
 
   //reference array for above diagram
   int reference[15][3] = {{0, 0, 10}, {0, 0, 25}, {0, 0, 50}, {0, 0, 100}, {0, 0, 250},
-			  {1, 0, 10}, {1, 0, 25}, {1, 0, 50}, {1, 0, 100}, {1, 0, 250},
+			  {1, -10, 0}, {1, -25, 0}, {1, -50, 0}, {1, -100, 0}, {1, -250, 0},
 			  {0, -10, 10}, {0, -25, 25}, {0, -50, 50}, {0, -100, 100}, {0, -250, 250}};
   unsigned int level;
   //function to input and validate character input
@@ -127,7 +117,11 @@ int main()
   for(i = 0; i < 20; i++)
     {
 	//add check for second value to modify the sign
-      for(j = 0; j < 2; j++) rand_gen(&val[j], reference[level][1], reference[level][2]);
+      for(j = 0; j < 2; j++)
+	{ 
+	  val[j] = rand_gen(reference[level][1], reference[level][2]);
+	}
+      
       if(val[1] >= 0)
       {
 	fprintf(output, "%2d) %d + %d = \t\t\n", i + 1, val[0], val[1]);
