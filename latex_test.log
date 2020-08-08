@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.7.10)  8 AUG 2020 12:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2020.7.10)  8 AUG 2020 16:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -72,35 +72,29 @@ LaTeX Font Info:    ... okay on input line 3.
 \everyMPtoPDFconversion=\toks16
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 7.
+(Font)              <12> on input line 5.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 7.
+(Font)              <8> on input line 5.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 22.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 22.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 22.
+(Font)              <6> on input line 5.
+ [1
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.23 2\frac{3}{9}
-                 +3\frac{7}{12} = {\color{green}\_\_\_} & \hskip & 17\frac{1...
-
-? X
- 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./latex_test.aux) ) 
 Here is how much of TeX's memory you used:
- 905 strings out of 482419
- 13472 string characters out of 5948008
+ 897 strings out of 482419
+ 13347 string characters out of 5948008
  240978 words of memory out of 5000000
- 16746 multiletter control sequences out of 15000+600000
- 537199 words of font info for 40 fonts, out of 8000000 for 9000
+ 16736 multiletter control sequences out of 15000+600000
+ 535074 words of font info for 33 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 24i,8n,21p,169b,187s stack positions out of 5000i,500n,10000p,200000b,80000s
-No pages of output.
+ 24i,8n,21p,169b,105s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+Output written on latex_test.pdf (1 page, 16647 bytes).
 PDF statistics:
- 0 PDF objects out of 1000 (max. 8388607)
+ 16 PDF objects out of 1000 (max. 8388607)
+ 10 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
