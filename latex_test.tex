@@ -1,0 +1,29 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{color}
+\begin{document}
+\title{This is the document title}
+\author{This is the author of the document}
+\date{\today}
+\maketitle
+
+\section{Intro}
+A sentence of text.
+
+\section{Methods}
+
+\subsection{stuff and things}
+\label{sec}
+
+more text here {\color{green}\_\_\_} more text on same line
+
+\section{Math}
+
+\begin{table}[ht]
+\begin{tabular}{lll}
+2\frac{3}{9}+3\frac{7}{12} = {\color{green}\_\_\_} & \hskip & 17\frac{12}{3}-14\frac{2}{3}= \\
+\end{tabular}
+\end{table}
+
+\section{results}
+reference \ref{sec} on page \pageref{sec} for results
+\end{document}
