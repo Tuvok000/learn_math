@@ -1,9 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "def.h"
 
 #define CAT_RANGE_HIGH 6
 #define CAT_RANGE_LOW 1
+
+extern char category[][17];
 
 //category definitions
 
@@ -20,31 +20,19 @@ variable: level
 
 int main()
 {
-  int category_count;
-  long category_select;
-  char input[2];
-  
+  int i;
   printf("Welcome to Learn Math Alpha V0.0.1\n");
   printf("Select module\n");
 
   //print categories defined in def.h
-  for(category_count = 0; category_count < 6; category_count++)
+  for(i = 0; i < 6; i++)
     {
-      printf("%d - %s\n", category_count+1, category[category_count]);
+      printf("%d - %s\n", i+1, category[i]);
     }
 
   //wait for user to select a category
-  while(1)
-    {
-      printf("> ");
-      scanf("%2s", input);
-      fflush(stdin);
-      category_select = strtol(input, NULL, 10);
-      if(category_select < CAT_RANGE_LOW || category_select > CAT_RANGE_HIGH)
-	continue;
-      break;
-    }
-  printf("done\n");
+  i = num_input(CAT_RANGE_LOW, CAT_RANGE_HIGH);
+  printf("%d done\n", i);
   
   return 0;
 }
