@@ -5,22 +5,12 @@
 
 extern char category[][17];
 
-//category definitions
-
-void addition(int level);
-/***************************************
-first category, addition
-adding 2-4 numbers together
-each number 1-4 digits long
-
-variable: level
-1 - 2 num, 1 digit
-
-***************************************/
-
 int main()
 {
   int i;
+
+  srand(time(NULL));
+  
   printf("Welcome to Learn Math Alpha V0.0.1\n");
   printf("Select module\n");
 
