@@ -1,2 +1,4 @@
 # learn_math
-a program based around the kumon method to learn and teach math
+a math program using simple concepts reinforced through repetition. The 
+basics are then built on with topics of increased complexity, again, reinforced
+through repetition.
