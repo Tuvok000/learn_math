@@ -22,6 +22,13 @@ int main()
 
   //wait for user to select a category
   i = num_input(CAT_RANGE_LOW, CAT_RANGE_HIGH);
+  
+  switch(i)
+  {
+    case 1:
+    
+  }
+
   printf("%d done\n", i);
   
   return 0;
