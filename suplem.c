@@ -76,46 +76,52 @@ page_count specifies how many pages to create
   fp = fopen("Addition_Workbook.tex", "w");
 
   //print the start of the document
-  fprintf(fp, "\\documentclass{article}\n\\usepackage[a4paper, total={6in, 8in}]{geometry}\n\\begin{document}\n\\begin{tabular}{r@{ }p{4.5cm}r@{ }l}\n");
+  fprintf(fp, "\\documentclass{article}\n\\begin{document}\n");
 
   //generate page name for file open and close
   for(page_num = 0; page_num < page_count; page_num++)
   {
-    //use if new files are needed for every page
-    //snprintf(file_name, 22, "Addition Page %2d of %2d", i + 1, page_count);
+    //open tabular environment for every page
+    fprintf(fp, "\\begin{tabular}{ccc}\n");
+    //print out 20 problems for the page
     for(prob_count = 0; prob_count < 20; prob_count++)
     {
+      //generate the values used for the problems
       addition_gen(addition_gen_ref[level][0], addition_gen_ref[level][1], num_buf);
+      //use one of three format strings depending on the number of variables requested
       switch(addition_gen_ref[level][1])
       {
-        case 2:
+        case 2://2 variables
           fprintf(fp, addition_format_string[0], prob_count + 1, num_buf[0], num_buf[1]);
           break;
 
-        case 3:
+        case 3://3 variables
           fprintf(fp, addition_format_string[1], prob_count + 1, num_buf[0], num_buf[1], num_buf[2]);
           break;
 
-        case 4:
+        case 4://4 variables
           fprintf(fp, addition_format_string[2], prob_count + 1, num_buf[0], num_buf[1], num_buf[2], num_buf[3]);
           break;
 
-        default:
+        default://something done fucked up, should never come here
           printf("Things really fucked up in addition\n");
           break;
       }
+      //if second problem listed, create 2 new lines
       if(prob_count % 2 == 1)
       {
         fprintf(fp, "\\\\\\\\\n");
       }
-      else
+      else//insert a 5 cm space into the second column 
       {
-        fprintf(fp, "&");
+        fprintf(fp, "& \\hspace{5cm} &");
       }
     }
-    //fprintf(fp, "\\newpage\n");
+    //end the tabular environment, create a new page
+    //the loop will reopen a tabular environment for each new page
+    fprintf(fp, "\\end{tabular}\n\\newpage\n");
   }
-  fprintf(fp, "\\end{tabular}\n\\end{document}");
+  fprintf(fp, "\\end{document}");
   fclose(fp);
 }
   
