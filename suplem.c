@@ -114,7 +114,7 @@ page_count specifies how many pages to create
       }
       else//insert a 5 cm space into the second column 
       {
-        fprintf(fp, "& \\hspace{5cm} &");
+        fprintf(fp, "& \\hspace{3cm} &");
       }
     }
     //end the tabular environment, create a new page
