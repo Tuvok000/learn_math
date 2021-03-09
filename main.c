@@ -8,6 +8,8 @@ extern char category[][17];
 int main()
 {
   int i;
+  int page_count;
+  int level;
 
   srand(time(NULL));
   
@@ -25,8 +27,18 @@ int main()
   
   switch(i)
   {
+    //addition case, calls addition_main(int) function
     case 1:
-    
+      printf("Please enter number of pages to generate\n(1-20) ");
+      page_count = num_input(1, 20);
+      printf("Please enter Level\n(1-10) \n");
+      level = num_input(1, 10);
+      //subtract 1 frob level for easier processing
+      addition_main(page_count, --level);
+      break;
+    default:
+      printf("stuff gone wrong\n");
+      break;    
   }
 
   printf("%d done\n", i);
