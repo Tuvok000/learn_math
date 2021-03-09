@@ -17,10 +17,10 @@ int num_input(int low, int high)
     {
       //this may cause some problems in the future
       //clears input buffer before and after input
-      while ((getchar()) != '\n');
+      //while ((getchar()) != '\n');
       printf("> ");
       scanf("%4s", input);
-      while ((getchar()) != '\n');
+      //while ((getchar()) != '\n');
       num = strtol(input, NULL, 10);
       if(num < low || num > high)
 	continue;
@@ -73,10 +73,10 @@ page_count specifies how many pages to create
 /*** Verify that page_count is <= 20 ***/
 
   FILE *fp;
-  fp = fopen("Addition Workbook", "w");
+  fp = fopen("Addition_Workbook.tex", "w");
 
   //print the start of the document
-  fprintf(fp, addition_tex_open);
+  fprintf(fp, "\\documentclass{article}\n\\usepackage[a4paper, total={6in, 8in}]{geometry}\n\\begin{document}\n\\begin{tabular}{r@{ }p{4.5cm}r@{ }l}\n");
 
   //generate page name for file open and close
   for(page_num = 0; page_num < page_count; page_num++)
@@ -85,35 +85,35 @@ page_count specifies how many pages to create
     //snprintf(file_name, 22, "Addition Page %2d of %2d", i + 1, page_count);
     for(prob_count = 0; prob_count < 20; prob_count++)
     {
-      addition_gen(addition_gen_ref[level][0], addition_gen_ref[level][1], &num_buf);
+      addition_gen(addition_gen_ref[level][0], addition_gen_ref[level][1], num_buf);
       switch(addition_gen_ref[level][1])
       {
         case 2:
-          fprintf(fp, addition_format_string[0], num_buf[0], num_buf[1]);
+          fprintf(fp, addition_format_string[0], prob_count + 1, num_buf[0], num_buf[1]);
           break;
 
         case 3:
-          fprintf(fp, addition_format_string[1], num_buf[0], num_buf[1], num_buf[2]);
+          fprintf(fp, addition_format_string[1], prob_count + 1, num_buf[0], num_buf[1], num_buf[2]);
           break;
 
         case 4:
-          fprintf(fp, addition_format_string[2], num_buf[0], num_buf[1], num_buf[2], num_buf[3]);
+          fprintf(fp, addition_format_string[2], prob_count + 1, num_buf[0], num_buf[1], num_buf[2], num_buf[3]);
           break;
 
         default:
           printf("Things really fucked up in addition\n");
           break;
       }
-      if(prob_count % 2 == 0)
+      if(prob_count % 2 == 1)
       {
-        fprintf(fp, "\\\\");
+        fprintf(fp, "\\\\\\\\\n");
       }
       else
       {
         fprintf(fp, "&");
       }
     }
-    fprintf(fp, "\\clearpage\n\\pagebreak\n");
+    //fprintf(fp, "\\newpage\n");
   }
   fprintf(fp, "\\end{tabular}\n\\end{document}");
   fclose(fp);

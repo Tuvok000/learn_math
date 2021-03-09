@@ -16,7 +16,7 @@ static char addition_gen_ref[10][2] = {{1, 2}, {2, 2}, {3, 2},
 									   {1, 4}, {2, 4}, {3, 4}, {4, 4}};
 static char addition_format_string[3][20] = {
 	"%d.)&$%d+%d=$", "%d.)&$%d+%d+%d=$", "%d.)&$%d+%d+%d+%d=$"};
-}
+
 /*--------------------*
 Function Definitions
 /*--------------------*/

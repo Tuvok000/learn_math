@@ -24,7 +24,7 @@ int main()
 
   //wait for user to select a category
   i = num_input(CAT_RANGE_LOW, CAT_RANGE_HIGH);
-  
+  printf("%d\n", i);
   switch(i)
   {
     //addition case, calls addition_main(int) function
