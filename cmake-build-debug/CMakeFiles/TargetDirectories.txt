@@ -1,0 +1,3 @@
+/home/user/learn_math/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/user/learn_math/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/user/learn_math/cmake-build-debug/CMakeFiles/learn_math.dir

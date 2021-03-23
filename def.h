@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
+#include <string.h>
 
 static char category[][17] = {"Addition", "Subtraction",
 		       "Add + Sub Mixed", "Multiplication",
@@ -24,6 +25,9 @@ Function Definitions
 int num_input(int low, int high);
 void addition_gen(int dig, int num, int *arr);
 void addition_main(int page_count, int level);
+int basics_format_string_gen(char *format_string, int length, int sign);
+//sign: variable will be expanded later to include mixed operation
+char sign_selector(int sign);
 
 
 #endif

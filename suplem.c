@@ -29,12 +29,87 @@ int num_input(int low, int high)
   return (int)num;
 }
 
-void addition_gen(int dig, int num, int *arr)
+int basics_format_string_gen(char *format_string, int length, int sign)
+{
+/*---------------------------------------------------*
+format_string: pointer to string being manipulated
+length: number of numbers to be handled by the string (individual %d values)
+sign: 1-4, selects the +, -, x, / math symbol for the problems
+returns how many characters are in the generated format string
+*---------------------------------------------------*/
+
+  int i = 0;
+  int total_length = 0;
+  char digit[] = "%d";
+  char string_begin[] = "%d.)$";
+  char string_end[] = "=$";
+  char sign_temp[1];
+  //generate format string using string concatenation
+  //if mixed symbols, use rand function with mod
+
+  //add start of string to external string pointer
+  strncat(format_string, string_begin, 5);
+  total_length += 5;
+
+  //generate format string
+  while(1) {
+      //copy the %d value to the string
+      strncat(format_string, digit, 2);
+      total_length += 2;
+      i++;
+      //if amount %d values meets target, end while loop
+      if (i == length) break;
+      //generate sign and store it into variable
+      //unsure how char and char array relate, search it up
+      sign_temp[0] = sign_selector(sign);
+      //copy sign to format string
+      strncat(format_string, sign_temp, 1);
+      total_length++;
+  }
+  //copy string end to
+  strncat(format_string, string_end, 2);
+
+  //return the character length of string returned
+}
+
+char sign_selector(int sign)
+{
+    char sign_return = '\0';
+    switch (sign)
+    {
+        case 1:
+            sign_return = '+';
+            break;
+        case 2:
+            sign_return = '-';
+            break;
+        case 3:
+            sign_return = 'x';
+            break;
+        case 4:
+            sign_return = '/';
+            break;
+        case 5://mixed addition subtraction
+            //question mark operator, 0 = +, 1 = -
+            sign_return = rand() & 1 ? "+" : "-";
+            break;
+        case 6:
+            //question mark operator, 0 = *, 1 = /
+            sign_return = rand() & 1 ? "x" : "/";
+            break;
+        default:
+            printf("\n*******Error*******\nError: sign_selector\n\n");
+    }
+    return sign_return;
+}
+
+void addition_gen(int dig, int num, int *arr, int sign)
 {
 /*--------------------------------------------*
 dig: decides max number of digits per number (max 4)
 num: how many numbers (max 4)
 arr: stores numbers to be passed back
+sign: 1-4, selects the +, -, x, / math symbol for the problems
 *--------------------------------------------*/
   int i;
   int digit_max = 0;
