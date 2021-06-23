@@ -32,6 +32,7 @@ int num_input(int low, int high)
 int basics_format_string_gen(char *format_string, int length, int sign)
 {
 /*---------------------------------------------------*
+ *Generates the string used by latexpdf to create the document
 format_string: pointer to string being manipulated
 length: number of numbers to be handled by the string (individual %d values)
 sign: 1-4, selects the +, -, x, / math symbol for the problems

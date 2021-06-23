@@ -13,7 +13,7 @@ int main()
 
   srand(time(NULL));
   
-  printf("Welcome to Learn Math Alpha V0.0.1\n");
+  printf("Learn Math Alpha V0.0.1\n");
   printf("Select module\n");
 
   //print categories defined in def.h
@@ -29,11 +29,11 @@ int main()
   {
     //addition case, calls addition_main(int) function
     case 1:
-      printf("Please enter number of pages to generate\n(1-20) ");
+      printf("Number of pages to generate\n(1-20) ");
       page_count = num_input(1, 20);
-      printf("Please enter Level\n(1-10) \n");
+      printf("Enter Level\n(1-10) \n");
       level = num_input(1, 10);
-      //subtract 1 frob level for easier processing
+      //subtract 1 from level for easier processing
       addition_main(page_count, --level);
       break;
     default:
