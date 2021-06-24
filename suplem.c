@@ -42,13 +42,13 @@ returns how many characters are in the generated format string
   int i = 0;
   int total_length = 0;
   char digit[] = "%d";
-  char string_begin[] = "%d.)$";
+  char string_begin[] = "%d.) $";
   char string_end[] = "=$";
   char sign_temp[1];
   //generate format string using string concatenation
   //if mixed symbols, use rand function with mod
 
-  //add start of string to external string pointer
+  //add start of string to external string pointer (func input)
   strncat(format_string, string_begin, 5);
   total_length += 5;
 
