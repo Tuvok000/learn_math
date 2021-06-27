@@ -4,11 +4,12 @@
 
 int num_input(int low, int high)
 {
+    /********************************************************
   //need to fix the stdin flush issue
   //function reads in stream, but doesn't clear it
   //the function will process 4 characters at a time
   //then process the remainder of the stream
-  
+  **********************************************************/
   int i;
   char input[4] = {'\0'};
   long num = 0;
@@ -104,7 +105,7 @@ char sign_selector(int sign)
     return sign_return;
 }
 
-void addition_gen(int dig, int num, int *arr, int sign)
+void problem_gen(int dig, int num, int *arr, int sign)
 {
 /*--------------------------------------------*
 dig: decides max number of digits per number (max 4)
@@ -128,7 +129,7 @@ sign: 1-4, selects the +, -, x, / math symbol for the problems
   }
 }
 
-void addition_main(int page_count, int level)
+void problem_main(int category, int page_count, int level)
 {
 /*-------------------------------------------------------*
 gets input from user about how hard they want the math
@@ -138,18 +139,51 @@ fills up an array, then writes a tex document with array
 values
 tex document is processed separately to create the final
 math document
+category decides the workbook name based on the sign
 page_count specifies how many pages to create
 20 problems per page, max 20 pages
 *-------------------------------------------------------*/
 
   int page_num, prob_count, i, j;
-  //char file_name[23] = {'\0'}; //"Addition Page xx of xx"
+  //char file_name[23] = {'\0'}; //"Problem Page xx of xx"
   int num_buf[4] = {'\0'};
 
 /*** Verify that page_count is <= 20 ***/
-
+  //open work book based on the category selected
+  //create a function to do this later and use string copy to programatically generate the names
   FILE *fp;
-  fp = fopen("Addition_Workbook.tex", "w");
+  switch(category)
+  {
+      case 1: //addition
+          fp = fopen("Addition_Workbook.tex", "w");
+          break;
+
+      case 2:
+          fp = fopen("Subtraction_Workbook.tex", "w");
+          break;
+
+      case 3:
+          fp = fopen("Multiplication_Workbook.tex", "w");
+          break;
+
+      case 4:
+          fp = fopen("Division_Workbook.tex", "w");
+          break;
+
+      case 5:
+          fp = fopen("Add_and_Subt_Workbook.tex", "w");
+          break;
+
+      case 6:
+          fp = fopen("Mult_and_Div_Workbook.tex", "w");
+          break;
+
+      default:
+          printf("\n*******Error*******\nError: Func; Problem Main, category selection\n\n")
+  }
+
+  if(fp == NULL) printf("Error opening file, category %d", category);
+
 
   //print the start of the document
   fprintf(fp, "\\documentclass{article}\n\\begin{document}\n");
@@ -163,9 +197,9 @@ page_count specifies how many pages to create
     for(prob_count = 0; prob_count < 20; prob_count++)
     {
       //generate the values used for the problems
-      addition_gen(addition_gen_ref[level][0], addition_gen_ref[level][1], num_buf);
+      addition_gen(problem_gen_ref[level][0], problem_gen_ref[level][1], num_buf);
       //use one of three format strings depending on the number of variables requested
-      switch(addition_gen_ref[level][1])
+      switch(problem_gen_ref[level][1])
       {
         case 2://2 variables
           fprintf(fp, addition_format_string[0], prob_count + 1, num_buf[0], num_buf[1]);
@@ -199,5 +233,15 @@ page_count specifies how many pages to create
   }
   fprintf(fp, "\\end{document}");
   fclose(fp);
+}
+
+void problem_format_string(int count, int category, char *string)
+{
+    /***************************************************************
+     * generates the format string used by problem_main()
+     * count: how many numbers per problem
+     * category: addition, subtraction, mult., etc
+     * string: pointer for final string output
+     **************************************************************/
 }
   

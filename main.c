@@ -34,7 +34,7 @@ int main()
       printf("Enter Level\n(1-10) \n");
       level = num_input(1, 10);
       //subtract 1 from level for easier processing
-      addition_main(page_count, --level);
+      problem_main(page_count, --level);
       break;
     default:
       printf("stuff gone wrong\n");
@@ -42,6 +42,6 @@ int main()
   }
 
   printf("%d done\n", i);
-  
+
   return 0;
 }
