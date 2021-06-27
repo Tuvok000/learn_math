@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/user/learn_math/learn_math_clion/def.h
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+math.h
+-
+string.h
+-
+suplem.c
+/home/user/learn_math/learn_math_clion/suplem.c
+
+/home/user/learn_math/learn_math_clion/main.c
+def.h
+/home/user/learn_math/learn_math_clion/def.h
+
+/home/user/learn_math/learn_math_clion/suplem.c
+def.h
+/home/user/learn_math/learn_math_clion/def.h
+

@@ -1,0 +1,4 @@
+/home/user/Downloads/clion-2021.1.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/user/learn_math/learn_math_clion
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/user/learn_math/learn_math_clion/cmake-build-debug
