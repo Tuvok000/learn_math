@@ -1,0 +1,6 @@
+open pdf file from commandline:
+xdg-open xxx.pdf
+
+convert tex file to pdf file:
+pdflatex xxx.tex
+	will give notes if something is missed
